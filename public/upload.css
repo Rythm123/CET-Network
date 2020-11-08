@@ -1,0 +1,22 @@
+.addFile{
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.upload input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+   
+}
+.upload select{
+    width: 80%;
+    margin-top: 10px;
+}
+.upload button{
+    margin-top: 20vh;
+}

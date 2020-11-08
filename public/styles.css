@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.authentic{
+    visibility: hidden;
+}
+
+.adminLogout{
+    visibility: hidden;
+}
+
+body{
+    height: 100vh;
+}
+
+.card{
+    margin: 10px;
+
+}
+.card:hover{
+    cursor: pointer;
+
+
+}
+
+.introduction{
+    background-color: pink;
+    height: 100vh;
+}
+
+.introduction h3{
+    text-align: center;
+}
+
+.navAdmin{
+    visibility: visible;
+}
+
+.navdiv{
+    position: sticky;
+    display: flex;
+    background-color: wheat;
+    top: 0;
+}
+
+.navbar{
+    width: 65%;
+    height: 60px;
+    display: flex;
+    z-index: 999;
+}
+.rightnav{
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    display: flex;
+}
+
+.rightnav button{
+    margin: 0 10px;
+}
+
+.navbar button{
+    right: 10px;
+}
+
+.yearCards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.yearIntro{
+    text-align: center;
+}
+
+.subCards{
+   display: grid;
+   grid-template-columns: auto auto auto auto;
+   justify-content: space-evenly;
+}
