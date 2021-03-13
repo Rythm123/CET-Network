@@ -3,7 +3,7 @@ const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 const ejs=require("ejs");
 const session=require("express-session");
-
+var loggedIn=false;
 
 mongoose.connect("mongodb://localhost:27017/cetNetworkDB",{useNewUrlParser:true});
 
@@ -71,7 +71,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(session(
     {secret:"MyProject",
     resave:false,
-    saveUninitialized:false}
+    saveUninitialized:false,
+    cookie:{secure:true}
+    }
     ));
 
 
@@ -79,24 +81,27 @@ app.use(session(
 
 
 app.get("/",function(req,res){
-    Ebook.find({},function(err,foundList){
-        if(foundList.length===0){
-            Ebook.insertMany(defaultebooks,function(err){
-                if(err){
-                    console.log(err);
-                }
-                else{
-                    console.log("Successfully added the ebooks")
-                }
-            });
-            res.redirect("/");
-        }
-        else{
-            res.render("home",{
-                authtoken:req.session.auth
-            });
-        }
-    })
+    // Ebook.find({},function(err,foundList){
+    //     if(foundList.length===0){
+    //         Ebook.insertMany(defaultebooks,function(err){
+    //             if(err){
+    //                 console.log(err);
+    //             }
+    //             else{
+    //                 console.log("Successfully added the ebooks")
+    //             }
+    //         });
+    //         res.redirect("/");
+    //     }
+    //     else{
+    //         res.render("home",{
+    //             authtoken:loggedIn
+    //         });
+    //     }
+    // })
+    res.render("home",{
+        authtoken:loggedIn
+    });
     
 });
 
@@ -106,7 +111,7 @@ app.get("/first",function(req,res){
         console.log(foundList);
         res.render("year",
         {year:"first",
-        authtoken:req.session.auth,
+        authtoken:loggedIn,
         mySubs:foundList}
     );
     });
@@ -118,7 +123,7 @@ app.get("/second",function(req,res){
         console.log(foundList);
         res.render("year",
         {year:"second",
-        authtoken:req.session.auth,
+        authtoken:loggedIn,
         mySubs:foundList}
     );
     });
@@ -137,7 +142,7 @@ app.get("/second",function(req,res){
 // })
 
 app.get("/upload" ,function(req,res){
-    if(req.session.auth===true){
+    if(loggedIn===true){
         res.render("upload");
     }
     else{
@@ -163,8 +168,8 @@ app.post("/adminlogin",function(req,res){
         }
         else if(foundAdmin){
             if(foundAdmin.password===password){
-                req.session.auth=true;
-                console.log(req.session.auth)
+                loggedIn=true;
+                console.log(loggedIn)
                 res.redirect("/");
             }
         }
@@ -202,7 +207,7 @@ app.post("/delete",function(req,res){
 
 
 app.post("/logout",function(req,res){
-    req.session.auth=false;
+    loggedIn=false;
     res.redirect("/");
 });
 

@@ -10,15 +10,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Add a new File here</h1>
+    <h1 class="adminheading">Add a new File here</h1>
     <div class="addFile">
         <form action="/upload" method="POST" class="upload">
-            <input type="text" name="Subject" id="" placeholder="Enter the subject code">
+            <input required style="text-transform:uppercase" type="text" name="Subject" id="" placeholder="Enter the subject code">
             <br>
-            <input type="text" name="Link" placeholder="Enter the google drive link">
+            <input required type="text" name="Link" placeholder="Enter the google drive link">
             <br>
             <label for="year">Select the year</label>
-            <select name="year" id="year">
+            <select required name="year" id="year">
                 <option value="first">First</option>
                 <option value="second">Second</option>
                 <option value="third">Third</option>

@@ -1,16 +1,25 @@
+body{
+    background-color: wheat;
+background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+
+
 .addFile{
     max-width: 50%;
-    margin: auto;
+    margin: 60px auto 0 auto;
     text-align: center;
     border: 2px solid black;
     padding: 25px;
     border-radius: 15px;
+    background-color: #eee;
 }
 
 .upload input{
     width: 100%;
     padding: 10px;
-    margin: 5px 0;
+    margin: 10px 0;
    
 }
 .upload select{
@@ -19,4 +28,18 @@
 }
 .upload button{
     margin-top: 20vh;
+}
+
+.adminheading{
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.loginpannel{
+    border-radius: 30px;
+    margin: 40px auto 0 auto;
+    background-color: wheat;
+    width: 60vw;
+    padding-bottom: 50px;
 }

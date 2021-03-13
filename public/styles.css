@@ -4,11 +4,11 @@
 }
 
 .authentic{
-    visibility: hidden;
+    display: none;
 }
 
 .adminLogout{
-    visibility: hidden;
+    display: none;
 }
 
 body{
@@ -67,6 +67,7 @@ body{
 }
 
 .yearCards{
+    padding: 50px 0;
     display: flex;
     justify-content: space-evenly;
 }
@@ -79,4 +80,88 @@ body{
    display: grid;
    grid-template-columns: auto auto auto auto;
    justify-content: space-evenly;
+}
+
+.features{
+    background-color: wheat;
+   
+}
+
+.homefooter{
+    background-color: wheat;
+    height: 40vh;
+}
+
+.yearHeading{
+    padding: 20px 0;
+    background-color: pink;
+}
+
+.feature{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.features>:nth-child(odd){
+    background-color: #ddd;
+}
+
+.features>:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.fimage{
+    height: 200px;
+    border-radius: 10px;
+}
+
+.written{
+    text-align: center;
+    width: 80%;
+}
+
+.projectDetails h1{
+    text-align: center;
+    font-size: 20px;
+}
+
+.projectContent{
+    display: flex;
+}
+
+.projectContent .left{
+
+    width: 70%;
+    border-right: 1px solid grey;
+}
+.projectContent .right{
+    width: 30%;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.knowmore{
+    margin: 80px;
+    text-decoration: none;
+}
+
+.projectContent .left .techs{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.techs img{
+    height: 100px;
+}
+
+.left h4{
+    text-align: center;
 }

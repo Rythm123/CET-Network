@@ -20,12 +20,12 @@
    <% mySubs.forEach(function(sub){ %>
     <form action="/delete" method="POST">
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        
         <div class="card-body">
           <h5 class="card-title"><%= sub.subject %></h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href=<%= sub.link %> class="btn btn-primary">Go somewhere</a>
-          <button class="delButton authentic btn btn-danger" type="submit" name="delbutton" value=<%= sub._id  %> >delete</button>
+          <button class="delButton authentic btn btn-danger" type="submit" name="delbutton" value=<%= sub._id  %> onclick="confirmDelete()" >delete</button>
         </div>
       </div>
     </form>
@@ -39,6 +39,11 @@
     for(let i=0;i<x.length;i++){
       x[i].classList.remove("authentic");
     }
+  }
+</script>
+<script>
+  function confirmDelete(){
+    confirm("Are you sure you want to delete this subject?")
   }
 </script>
 </body>
