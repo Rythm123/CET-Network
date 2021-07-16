@@ -132,18 +132,26 @@ app.get("/second",function(req,res){
     );
     });
 })
-// app.get("/third",function(req,res){
-//     res.render("year",
-//         {year:"third",
-//     mySubs:cards}
-//     );
-// })
-// app.get("/fourth",function(req,res){
-//     res.render("year",
-//         {year:"fourth",
-//     mySubs:cards}
-//     );
-// })
+app.get("/third",function(req,res){
+    Ebook.find({year:"third"},function(err,foundList){
+        console.log(foundList);
+        res.render("year",
+        {year:"third",
+        authtoken:req.session.loginfo,
+        mySubs:foundList}
+    );
+    });
+})
+app.get("/fourth",function(req,res){
+    Ebook.find({year:"fourth"},function(err,foundList){
+        console.log(foundList);
+        res.render("year",
+        {year:"fourth",
+        authtoken:req.session.loginfo,
+        mySubs:foundList}
+    );
+    });
+})
 
 app.get("/upload" ,function(req,res){
     if(req.session.loginfo===true){
