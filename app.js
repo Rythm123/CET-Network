@@ -3,9 +3,12 @@ const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 const ejs=require("ejs");
 const session=require("express-session");
+// var ssn.ssn.loggedin=false;
+var ssn;
 var loggedIn=false;
 
-mongoose.connect("mongodb://localhost:27017/cetNetworkDB",{useNewUrlParser:true});
+mongoose.connect("mongodb://localhost:27017/cetNetworkDB",{useNewUrlParser:true,useUnifiedTopology:true});
+
 
 const ebookSchema={
     subject:String,
@@ -61,7 +64,7 @@ const ebook2 = new Ebook({
 
 const defaultebooks=[ebook1,ebook2];
 
-
+////////////////////////////////////////////////////////////////////////////////////////////
 
 const app=express();
 
@@ -71,8 +74,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(session(
     {secret:"MyProject",
     resave:false,
-    saveUninitialized:false,
-    cookie:{secure:true}
+    saveUninitialized:false
     }
     ));
 
@@ -81,6 +83,7 @@ app.use(session(
 
 
 app.get("/",function(req,res){
+
     // Ebook.find({},function(err,foundList){
     //     if(foundList.length===0){
     //         Ebook.insertMany(defaultebooks,function(err){
@@ -95,12 +98,13 @@ app.get("/",function(req,res){
     //     }
     //     else{
     //         res.render("home",{
-    //             authtoken:loggedIn
+    //             authtoken:ssn.ssn.loggedin
     //         });
     //     }
     // })
     res.render("home",{
-        authtoken:loggedIn
+        
+        authtoken:req.session.loginfo
     });
     
 });
@@ -111,7 +115,7 @@ app.get("/first",function(req,res){
         console.log(foundList);
         res.render("year",
         {year:"first",
-        authtoken:loggedIn,
+        authtoken:req.session.loginfo,
         mySubs:foundList}
     );
     });
@@ -123,7 +127,7 @@ app.get("/second",function(req,res){
         console.log(foundList);
         res.render("year",
         {year:"second",
-        authtoken:loggedIn,
+        authtoken:req.session.loginfo,
         mySubs:foundList}
     );
     });
@@ -142,7 +146,7 @@ app.get("/second",function(req,res){
 // })
 
 app.get("/upload" ,function(req,res){
-    if(loggedIn===true){
+    if(req.session.loginfo===true){
         res.render("upload");
     }
     else{
@@ -159,6 +163,7 @@ app.get("/adminlogin",function(req,res){
 
 
 app.post("/adminlogin",function(req,res){
+    ssn=req.session;
     const username=req.body.username;
     const password=req.body.password;
 
@@ -168,8 +173,9 @@ app.post("/adminlogin",function(req,res){
         }
         else if(foundAdmin){
             if(foundAdmin.password===password){
-                loggedIn=true;
-                console.log(loggedIn)
+                req.session.loginfo=true;
+                req.session.save();
+                console.log("Session log info is changed to " + req.session.loginfo);
                 res.redirect("/");
             }
         }
@@ -207,7 +213,7 @@ app.post("/delete",function(req,res){
 
 
 app.post("/logout",function(req,res){
-    loggedIn=false;
+    req.session.loginfo=false;
     res.redirect("/");
 });
 
