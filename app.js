@@ -113,6 +113,7 @@ app.get("/first",function(req,res){
 
     Ebook.find({year:"first"},function(err,foundList){
         console.log(foundList);
+        console.log(req.session.loginfo)
         res.render("year",
         {year:"first",
         authtoken:req.session.loginfo,
@@ -169,6 +170,18 @@ app.get("/adminlogin",function(req,res){
     res.render("adminLogin");
 });
 
+app.post("/adminaccess",function(req,res){
+    console.log("helo")
+    const name=req.body.adminname;
+    const email=req.body.adminemail;
+    const year=req.body.ayear;
+
+    console.log(name,email,year);
+    console.log("Data recieved");
+
+    res.redirect("/");
+});
+
 
 app.post("/adminlogin",function(req,res){
     ssn=req.session;
@@ -222,6 +235,7 @@ app.post("/delete",function(req,res){
 
 app.post("/logout",function(req,res){
     req.session.loginfo=false;
+    req.session.destroy();
     res.redirect("/");
 });
 
@@ -246,3 +260,9 @@ const cards=[
         link: "sdhfsdkjslkdjf.com"
     }
 ]
+
+
+
+//d545c01530db8c6b97ab348c058e56fe-us17
+
+//5bd409e54b

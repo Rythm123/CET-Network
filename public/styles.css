@@ -15,6 +15,46 @@ body{
     height: 100vh;
 }
 
+.contribute{
+    height: 50vh;
+    display: flex;
+}
+.contribute .adminrequest,.githubcontri{
+    width: 50%;
+    height: inherit;
+}
+
+.githubcontri{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-left: 1px solid #171717;
+    padding-top: 20px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+.githubcontri .giticon{
+    font-size: 80px;
+    color: black;
+    
+}
+.adminrequest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.adminaccess{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+.adminaccess input{
+    margin: 5px;
+    padding: 3px;
+}
+
 .card{
     margin: 10px;
 
@@ -25,12 +65,12 @@ body{
 
 }
 
-.introduction{
-    background-color: pink;
+.main{
+    background-color: #444444;
     height: 100vh;
 }
 
-.introduction h3{
+.main h3{
     text-align: center;
 }
 
@@ -41,8 +81,9 @@ body{
 .navdiv{
     position: sticky;
     display: flex;
-    background-color: wheat;
+    background-color: #171717;
     top: 0;
+    opacity: 0.94;
 }
 
 .navbar{
@@ -52,14 +93,17 @@ body{
     z-index: 999;
 }
 .rightnav{
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-end;
     width: 35%;
     display: flex;
 }
 
 .rightnav button{
     margin: 0 10px;
+    background-color: #444444;
+    border-color: Black;
 }
 
 .navbar button{
@@ -70,48 +114,56 @@ body{
     padding: 50px 0;
     display: flex;
     justify-content: space-evenly;
+    min-height: 85vh;
 }
 
-.yearIntro{
-    text-align: center;
-}
 
-.subCards{
-   display: grid;
-   grid-template-columns: auto auto auto auto;
-   justify-content: space-evenly;
-}
+
+
 
 .features{
-    background-color: wheat;
+    display: flex;
+    padding: 40px 0;
+    background-color: white;
+    min-height: 50vh;
+    justify-content: space-evenly;
+    align-items: center;
+    
    
 }
 
 .homefooter{
-    background-color: wheat;
+    background-color: #DA0037;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
     height: 40vh;
 }
 
 .yearHeading{
     padding: 20px 0;
     background-color: pink;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
+    background-color: #444444;
+    color: white;
+    letter-spacing: 2px;
 }
 
 .feature{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #eee;
+    width: 450px;
+
 }
 
-.features>:nth-child(odd){
-    background-color: #ddd;
-}
+
 
 .features>:nth-child(even){
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
 }
 
 .fimage{
@@ -164,4 +216,64 @@ body{
 
 .left h4{
     text-align: center;
+}
+
+
+.header{
+    background: url("/img/headerback.jpg");
+    height: 85vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.headercontent{
+    font-family: 'Ubuntu Mono', monospace;
+    width: 70%;
+    padding: 5rem;
+}
+
+.headercontent h1{
+    margin-top: 3rem;
+    font-size: 7rem;
+    color: black;
+}
+
+.headercontent p{
+    font-size: 24px
+}
+
+.ycard{
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    border: 1px solid #171717;
+    text-align: center;
+    padding: 25px;
+    width: 250px;
+    background: linear-gradient(to bottom right, #810524,#d8466a);
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 30px;
+}
+.ycard .ycard-title{
+    font-size: 4em;
+    font-family: 'Ubuntu Mono', monospace;
+    text-transform: uppercase;
+    color: white;
+    
+}
+.ycard .btn{
+    margin-top: 100px;
+    border: 1px solid #970328;
+    background-color: #DA0037;
+    padding: 15px 25px;
+}
+
+.ycard:nth-child(1){
+    background: linear-gradient(to bottom right, #0a2a44,#9e243f);
+}
+.ycard:nth-child(2){
+    background: linear-gradient(to bottom right, #0c2712,#058d4e);
+}
+.ycard:nth-child(4){
+    background: linear-gradient(to bottom right, #240505,#af0328);
 }

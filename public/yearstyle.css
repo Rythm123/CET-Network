@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.authentic{
+    display: none;
+}
+body{
+    background: linear-gradient(#2b0c14,#802a2a);
+    min-height: 100vh;
+    font-family: 'Ubuntu Mono', monospace;
+}
+.subCards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 40px;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.subcard{
+    border: 1px solid black;
+    height: 45vh;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(rgb(31, 8, 18),rgb(235, 19, 84));
+    
+}
+
+.subcard .subcard-title{
+    font-size: 35px;
+    text-align: center;
+    padding-top: 10px;
+    text-transform: uppercase;
+    color: white;
+
+}
+
+.subcbuttons{
+    width: 70%;
+    text-align: center;
+    margin:120px  auto 0 auto;
+}
+
+.subcbuttons .btn,.delButton{
+    margin: 3px;
+
+}
+.subcbuttons .btn{
+    background-color: #171717;
+}
+.subcbuttons .delButton{
+    background-color: transparent;
+}
+
+.yearIntro{
+    padding: 25px;
+    height: 25vh;
+    background-color: #171717;
+    color: white;
+}
+
+.yearIntro h1{
+    font-size: 60px;
+    text-transform: uppercase;
+}
