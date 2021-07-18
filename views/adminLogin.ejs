@@ -35,6 +35,7 @@
             <button class="btn">Login as Admin</button>
     
         </form>
+        <div class="errorbox"></div>
     
     </div>
 
@@ -47,6 +48,14 @@ labels.forEach((label)=>{
         `<span style="transition-delay:${index * 35}ms">${letter}</span>`
     ).join('');
 });
+
+</script>
+<script>
+
+    
+    if(<%= error %>){
+        document.querySelector(".errorbox").innerHTML="There is some problem with authentication, try again"
+    }
 </script>
 </body>
 </html>

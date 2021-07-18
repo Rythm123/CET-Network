@@ -181,7 +181,7 @@ app.get("/upload" ,function(req,res){
 
 
 app.get("/adminlogin",function(req,res){
-    res.render("adminLogin");
+    res.render("adminLogin",{errormessage:"",error:false});
 });
 
 app.post("/adminaccess",function(req,res){
@@ -224,6 +224,7 @@ app.post("/adminlogin",function(req,res){
     Admin.findOne({username:username},function(err,foundAdmin){
         if(err){
             console.log(err);
+
         }
         else if(foundAdmin){
             if(foundAdmin.password===password){
@@ -232,7 +233,16 @@ app.post("/adminlogin",function(req,res){
                 console.log("Session log info is changed to " + req.session.loginfo);
                 res.redirect("/");
             }
+            else{
+                res.render("adminlogin",{errormessage:"Wrong Password",error:true});
+            }
         }
+        else{
+            res.render("adminLogin",
+            {errormessage:"No such user found",
+            error:true});
+        }
+
     })
     
 })
@@ -279,23 +289,3 @@ app.listen(3000,function(){
 
 
 
-const cards=[
-    {
-        subject: "CPP",
-        year: "third",
-        link: "https://www.youtube.com/"
-
-    },
-
-    {
-        subject:"Chemistry",
-        year: "fourth",
-        link: "sdhfsdkjslkdjf.com"
-    }
-]
-
-
-
-//d545c01530db8c6b97ab348c058e56fe-us17
-
-//5bd409e54b

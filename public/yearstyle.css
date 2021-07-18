@@ -21,29 +21,42 @@ body{
 }
 
 .subcard{
-    border: 1px solid black;
+    border: 1px solid rgb(66, 62, 62);
     min-height: 45vh;
     width: 100px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background: linear-gradient(rgb(31, 8, 18),rgb(235, 19, 84));
+    background: linear-gradient(to bottom right,rgb(120, 21, 185),rgb(3, 4, 66));
+    border-radius: 15px ;
     
 }
 
+.subcard-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 45vh;
+}
+
 .subcard .subcard-title{
-    font-size: 35px;
-    text-align: center;
-    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    width: 100%;
     text-transform: uppercase;
     color: white;
+    height: 65%;
 
 }
 
 .subcbuttons{
-    width: 70%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35%;
     text-align: center;
-    margin:120px  auto 0 auto;
 }
 
 .subcbuttons .btn,.delButton{
@@ -76,4 +89,11 @@ body{
         flex-direction: column;
         align-items: center;
     }
+    .yearIntro h1{
+        font-size: 35px;
+    }
+    .yearIntro h3{
+        font-size: 28px;
+    }
 }
+
