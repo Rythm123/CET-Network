@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express=require("express");
+
 const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 const ejs=require("ejs");
@@ -7,7 +9,19 @@ const session=require("express-session");
 var ssn;
 var loggedIn=false;
 
-mongoose.connect("mongodb://localhost:27017/cetNetworkDB",{useNewUrlParser:true,useUnifiedTopology:true});
+const dbuser=process.env.DB_USER;
+const dbuserpass=process.env.DB_USERPASS;
+
+mongoose.connect(`mongodb+srv://${dbuser}:${dbuserpass}@cetnetwork.y0rl4.mongodb.net/cetNetworkDB`,{useNewUrlParser:true,useUnifiedTopology:true});
+
+const adminreqSchema={
+    name:String,
+    email:String,
+    year:String,
+    thoughts:String
+}
+
+const Adminreq=mongoose.model("adminreq",adminreqSchema);
 
 
 const ebookSchema={
@@ -175,6 +189,25 @@ app.post("/adminaccess",function(req,res){
     const name=req.body.adminname;
     const email=req.body.adminemail;
     const year=req.body.ayear;
+    const thoughts=req.body.athoughts;
+
+    adminreq=new Adminreq({
+        name:name,
+        email:email,
+        year:year,
+        thoughts:thoughts
+    });
+    const allAdmins=[adminreq]
+
+    Adminreq.insertMany(allAdmins,function(err){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("Admin request has been submitted");
+        }
+
+    })
 
     console.log(name,email,year);
     console.log("Data recieved");

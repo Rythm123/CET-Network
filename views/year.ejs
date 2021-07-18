@@ -31,7 +31,7 @@
           <h5 class="subcard-title"><%= sub.subject %></h5>
           
           <div class="subcbuttons">
-          <a href=<%= sub.link %> class="btn btn-primary">Open Link</a>
+          <a href=<%= sub.link %> target="_blank" class="btn btn-primary">Open Link</a>
           <button class="delButton authentic btn btn-danger" type="submit" name="delbutton" value=<%= sub._id  %> onclick="confirmDelete()" >delete</button>
         </div>
         </div>

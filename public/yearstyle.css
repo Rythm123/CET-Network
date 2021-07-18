@@ -22,7 +22,7 @@ body{
 
 .subcard{
     border: 1px solid black;
-    height: 45vh;
+    min-height: 45vh;
     width: 100px;
     display: flex;
     flex-direction: column;

@@ -108,7 +108,7 @@
             <div class="contribute">
               <div class="adminrequest">
                 <h2>Apply for your Admin Access</h2>
-                <form action="/adminaccess" class="adminaccess" method="POST">
+                <form action="/adminaccess" class="adminaccess" method="POST" onsubmit="registerAlert()">
                   <input required id="aName" type="text" placeholder="Enter your name" name="adminname">
                   <input required type="text" id="aEmain" placeholder="Enter your email" name="adminemail">
                   <div class="year">
@@ -122,16 +122,20 @@
                     
                 </select>
               </div>
+                  <textarea name="athoughts" id="" cols="30" rows="10" placeholder="Share Your thoughts"></textarea>
                 <br>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn arbutton btn-success" >Submit</button>
 
                 </form>
               </div>
               <div class="githubcontri">
+                <div class="gitcontent">
                 <h2>WANT TO COLLABORATE ?</h2>
                 <a href="https://github.com/Rythm123/CET-Network" target="_blank" class="giticon"><i class="fab fa-github-square">
                 </i></a>
                 <h3 class="gittagline">Shoot your pull requests right away</h3>
+
+              </div>
               </div>
             </div>
               <footer class="homefooter">
@@ -163,11 +167,16 @@
         document.getElementById("logout").classList.remove("adminLogout");
         document.getElementById("upload").classList.remove("adminLogout");
         document.getElementById("loginadmin").classList.add("adminLogout");
+
+        function registerAlert(){
+         alert("Your Request has been registered");
+       }
       }
     </script>
      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
      <script>
        AOS.init();
+
      </script>
 <script src="home.js"></script>
 </body>

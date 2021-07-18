@@ -12,7 +12,7 @@
 <body>
     <h1 class="adminheading">Add a new File here</h1>
     <div class="addFile">
-        <form action="/upload" method="POST" class="upload">
+        <form action="/upload" method="POST" class="upload" onsubmit="fileUpload()">
             <input required style="text-transform:uppercase" type="text" name="Subject" id="" placeholder="Enter the subject code">
             <br>
             <input required type="text" name="Link" placeholder="Enter the google drive link">
@@ -30,6 +30,11 @@
         </form>
     </div>
     
+    <script>
+        function fileUpload(){
+            alert("File uploaded Successfully");
+        }
+    </script>
    
 </body>
 </html>
