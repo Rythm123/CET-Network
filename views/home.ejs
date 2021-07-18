@@ -18,38 +18,34 @@
     <title>CET-Network</title>
 </head>
 <body>
-  <div class="navdiv">
-    <div class="navbar">
-      
-    </div>
-      <div class="rightnav">
-       
-      <form action="/upload" method="GET">
-        <button type="submit" id="upload" class="adminLogout btn btn-success">Upload a file</button>
+  <div class="header">
+    <div class="navdiv">
+      <div class="navbar">
+        
+      </div>
+        <div class="rightnav">
+         
+        <form action="/upload" method="GET">
+          <button type="submit" id="upload" class="adminLogout btn btn-success">Upload a file</button>
+        </form>
+        <form action="/logout" method="POST">
+          <button type="submit" id="logout" class="adminLogout btn btn-danger">Logout</button>
       </form>
-      <form action="/logout" method="POST">
-        <button type="submit" id="logout" class="adminLogout btn btn-danger">Logout</button>
-    </form>
-    <a href="/adminlogin" id="loginadmin"><button  class="btn btn-success">Admin Login</button></a>
-  </div>
-    
-   
+      <a href="/adminlogin" id="loginadmin"><button  class="btn btn-success">Admin Login</button></a>
+    </div>
+    </div>
+  
+    <div class="main">
+      <div class="headercontent">
+        <h1 class="title">CET Network</h1>
+        <p>Access any study material with a click</p>
+      </div>
+    </div>
+
   </div>
 
     <section class="intro">
-        <div class="main">
-          <div class="header">
-            <!-- <div class="jumbotron jumbotron-fluid">
-              <div class="container">
-                <h1 class="display-4">Welcome to the Cet Network.</h1>
-                <p class="lead">Get all your required study material at one place.</p>
-              </div>
-            </div> -->
-            <div class="headercontent">
-              <h1 class="title">CET Network</h1>
-              <p>Access any study material with a click</p>
-            </div>
-          </div>
+
 
               <div class="features">
                 <div class="feature">
@@ -110,7 +106,7 @@
                 <h2>Apply for your Admin Access</h2>
                 <form action="/adminaccess" class="adminaccess" method="POST" onsubmit="registerAlert()">
                   <input required id="aName" type="text" placeholder="Enter your name" name="adminname">
-                  <input required type="text" id="aEmain" placeholder="Enter your email" name="adminemail">
+                  <input required type="email" id="aEmain" placeholder="Enter your email" name="adminemail">
                   <div class="year">
                     <label for="ayear">Year :</label>
                   
@@ -148,10 +144,10 @@
                     <div class="left">
                       <h4>Technologies used</h4>
                       <div class="techs">
-                        <img src="/img/mongo.png" alt="">
-                        <img src="/img/express.jpg" alt="">
-                        <img src="/img/node.png" alt="">
-                        <img src="/img/bootstrap.jpg" alt="">
+                        <div ><img src="/img/mongo.png" alt=""><img src="/img/express.jpg" alt=""></div>
+                        
+                        <div ><img src="/img/node.png" alt=""><img src="/img/bootstrap.jpg" alt=""></div>
+                        
                       </div>
                     </div>
                     <div class="right">

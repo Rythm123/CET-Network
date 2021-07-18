@@ -97,3 +97,13 @@ form{
     width: 50%;
     height: 100vh;
 }
+
+@media only screen and (max-width:760px){
+    .loginpannel{
+        width: 0;
+    }
+    .container{
+        width: 100%;
+    }
+
+}

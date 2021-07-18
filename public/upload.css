@@ -1,7 +1,7 @@
 body{
-    background-color: wheat;
-background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background: linear-gradient(to bottom right, #171717,#971313);
+    height: 100vh;
+    font-family: 'Ubuntu Mono', monospace;
 }
 
 
@@ -12,19 +12,28 @@ background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png
     text-align: center;
     border: 2px solid black;
     padding: 25px;
-    border-radius: 15px;
-    background-color: #eee;
+    background-color: rgb(25, 45, 61);
 }
 
+.upload{
+    color: white;
+}
 .upload input{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
+    background-color: transparent;
    
 }
 .upload select{
     width: 80%;
     margin-top: 10px;
+    background-color: transparent;
+    color: white;
+}
+.upload select option{
+    background-color: transparent;
+    color: black;
 }
 .upload button{
     margin-top: 20vh;
@@ -34,12 +43,23 @@ background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png
     padding: 10px;
     margin-top: 10px;
     text-align: center;
+    color: white;
+    text-transform: uppercase;
 }
 
 .loginpannel{
     border-radius: 30px;
     margin: 40px auto 0 auto;
-    background-color: wheat;
+    background-color: steelblue;
     width: 60vw;
     padding-bottom: 50px;
+}
+
+@media only screen and (max-width:740px){
+    .addFile{
+        max-width: 95%;
+    }
+    .upload{
+        width: 95%d;
+    }
 }

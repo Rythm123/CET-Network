@@ -68,3 +68,12 @@ body{
     font-size: 60px;
     text-transform: uppercase;
 }
+
+
+@media only screen and (max-width:740px){
+    .subCards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
