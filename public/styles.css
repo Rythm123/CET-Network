@@ -92,16 +92,21 @@ body{
 .navdiv{
     position: sticky;
     display: flex;
-    background-color: #171717;
+    background-color: #DA0037;
     top: 0;
     opacity: 0.94;
 }
 
 .navbar{
     width: 65%;
-    height: 60px;
+    height: 80px;
     display: flex;
     z-index: 999;
+}
+
+.mainlogo{
+    height: 75px;
+    color: white;
 }
 .rightnav{
     flex-direction: row;
@@ -291,6 +296,9 @@ body{
     background: linear-gradient(to bottom right, #240505,#af0328);
 }
 
+.logofooter{
+    height: 250px;
+}
 
 @media only screen and (max-width:760px){
     .header{

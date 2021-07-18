@@ -5,12 +5,12 @@ const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
 const ejs=require("ejs");
 const session=require("express-session");
-// var ssn.ssn.loggedin=false;
-var ssn;
-var loggedIn=false;
+
 
 const dbuser=process.env.DB_USER;
 const dbuserpass=process.env.DB_USERPASS;
+//////////////////////////////////////////////////////////////////////////////////////////
+//Connecting mongoDB to our aplication.
 
 mongoose.connect(`mongodb+srv://${dbuser}:${dbuserpass}@cetnetwork.y0rl4.mongodb.net/cetNetworkDB`,{useNewUrlParser:true,useUnifiedTopology:true});
 
@@ -51,32 +51,9 @@ const admin2=new Admin({
 
 const allAdmins=[admin1,admin2];
 
+// This is to add admins explicitely for the first time.
 
-// Admin.insertMany(allAdmins,function(err){
-//     if(err){
-//         console.log(err);
-//     }
-//     else{
-//         console.log("Successfully added a new admin");
-//     }
 
-// })
-
-const ebook1=new Ebook({
-    subject:"Maths",
-    year:"first",
-    link: "https://getbootstrap.com/docs/4.5/components/card/"
-
-});
-
-const ebook2 = new Ebook({
-    subject: "Physics",
-    year: "second",
-    link: "https://www.youtube.com/"
-
-});
-
-const defaultebooks=[ebook1,ebook2];
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -94,30 +71,9 @@ app.use(session(
 
 
 
-
-
 app.get("/",function(req,res){
 
-    // Ebook.find({},function(err,foundList){
-    //     if(foundList.length===0){
-    //         Ebook.insertMany(defaultebooks,function(err){
-    //             if(err){
-    //                 console.log(err);
-    //             }
-    //             else{
-    //                 console.log("Successfully added the ebooks")
-    //             }
-    //         });
-    //         res.redirect("/");
-    //     }
-    //     else{
-    //         res.render("home",{
-    //             authtoken:ssn.ssn.loggedin
-    //         });
-    //     }
-    // })
-    res.render("home",{
-        
+    res.render("home",{   
         authtoken:req.session.loginfo
     });
     
